@@ -32,15 +32,27 @@ taskAreas.each(function(){
 var now = dayjs().hour()
 console.log(now)
 
-var str = 'hour-90'
-var matches = str.match(/(\d+)/);
-console.log(matches)
+function colorTimeblocks() {
+  $('.time-block').each((i,timeBlock) => {
+    let $timeBlock = $(timeBlock);
+    $timeBlock.removeClass('past present future');
+    var myHourId = $(this).attr("id")
+    console.log(myHourId)
+    var matchedHour = myHourId.match(/(\d+)/);
+    console.log(matchedHour)
+    console.log(myHourId.children('.description'))
+    if(now>matchedHour){
+      $timeBlock.addClass('past');
+    }else if(now==matchedHour){
+      $timeBlock.addClass('present');
+    }else{
+      $timeBlock.addClass('future');
+    }
 
-var hourEach = $('.row')
-hourEach.each(function(){
-  var myHourId = $(this).attr("id")
   //if checks, get the stuff from matches, and based on your condition, apply your class :D
 })
+}
+
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
