@@ -39,11 +39,11 @@ function colorTimeblocks() {
     var myHourId = $(this).attr("id")
     console.log(myHourId)
     var matchedHour = myHourId.match(/(\d+)/);
-    console.log(matchedHour)
+    console.log(parseInt(matchedHour))
     console.log(myHourId.children('.description'))
-    if(now>matchedHour){
+    if(now>parseInt(matchedHour)){
       $timeBlock.addClass('past');
-    }else if(now==matchedHour){
+    }else if(now==parseInt(matchedHour)){
       $timeBlock.addClass('present');
     }else{
       $timeBlock.addClass('future');
